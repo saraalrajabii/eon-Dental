@@ -51,9 +51,9 @@ import SEVERE from "./funnel3/funnel3/spacing/severe.jpg";
           <div className="title-question"><p className="element2">Choose the image that best describes your crowded teeth:</p></div>
         </div>
          <div className="grid-session2">
-         <div className="grid-item"><img src={mild} className="teeth2"/><p>mild</p></div>
-         <div className="grid-item"><img src={moderate} className="teeth2"/><p>moderate</p></div>
-         <div className="grid-item"><img src={severe} className="teeth2"/><p>severe</p></div>
+         <div className="grid-item" onClick={() => setState(state=>[state,"mild","standard"])}><img src={mild} className="teeth2"/><p>mild</p></div>
+         <div className="grid-item" onClick={() => setState(state=>[state,"medium","standard"])}><img src={moderate} className="teeth2"/><p>moderate</p></div>
+         <div className="grid-item" onClick={() => setState(state=>[state,"severe","plus"])}><img src={severe} className="teeth2"/><p>severe</p></div>
          </div></div>
         :null)}
          {(state === "crossbite" ?<div><div className="question2-container">
@@ -61,9 +61,9 @@ import SEVERE from "./funnel3/funnel3/spacing/severe.jpg";
           <div className="title-question"><p className="element2">Choose the image that best describes your spacing teeth:</p></div>
         </div>
          <div className="grid-session2">
-         <div className="grid-item"><img src={Mild} className="teeth2"/><p>mild</p></div>
-         <div className="grid-item"><img src={Moderate} className="teeth2"/><p>moderate</p></div>
-         <div className="grid-item"><img src={Severe} className="teeth2"/><p>severe</p></div>
+         <div className="grid-item"  onClick={() => setState(state=>[state,"mild","standard"])}><img src={Mild} className="teeth2"/><p>mild</p></div>
+         <div className="grid-item"  onClick={() => setState(state=>[state,"medium","standard"])}><img src={Moderate} className="teeth2"/><p>moderate</p></div>
+         <div className="grid-item"  onClick={() => setState(state=>[state,"severe","plus"])}><img src={Severe} className="teeth2"/><p>severe</p></div>
          </div></div>
         :null)}
        
@@ -71,9 +71,9 @@ import SEVERE from "./funnel3/funnel3/spacing/severe.jpg";
           <div className="circle"><p className="circle-element">2</p></div>
           <div className="title-question"><p className="element2">Choose the image that best describes your crossbite teeth:</p></div>
         </div> <div className="grid-session2">
-         <div className="grid-item"><img src={MILD} className="teeth2"/><p>mild</p></div>
-         <div className="grid-item"><img src={MODERATE} className="teeth2"/><p>moderate</p></div>
-         <div className="grid-item"><img src={SEVERE} className="teeth2"/><p>severe</p></div>
+         <div className="grid-item" onClick={() => setState(state=>[state,"mild","standard"])}><img src={MILD} className="teeth2"/><p>mild</p></div>
+         <div className="grid-item"  onClick={() => setState(state=>[state,"medium","standard"])}><img src={MODERATE} className="teeth2"/><p>moderate</p></div>
+         <div className="grid-item"  onClick={() => setState(state=>[state,"severe","plus"])}><img src={SEVERE} className="teeth2"/><p>severe</p></div>
          </div>
          </div>
         :null)}
@@ -92,6 +92,7 @@ import SEVERE from "./funnel3/funnel3/spacing/severe.jpg";
 
       </div>
        <div></div>
+    
        </div>
     );
 
