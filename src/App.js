@@ -5,7 +5,7 @@ import GetStarted from './components/GetStarted';
 
 function App() {
   return (
-    <Router className="container">
+    <Router className="containerRouter">
     <Route path="/" component={GetStarted} /> 
     </Router>
   );
