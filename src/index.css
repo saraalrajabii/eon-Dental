@@ -124,4 +124,20 @@ body {
     display: grid;
     grid-template-columns: auto 6fr;
     margin-top: 50px;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
 }
+.grid-session2{
+    display: grid;
+    grid-template-columns:  5fr 5fr 5fr;
+    margin-top: 50px;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+}
+@media screen and (max-width: 839px) {
+    .grid-session2{
+     display: grid;
+     grid-template-columns:  5fr  ;
+    }
+    
+  }

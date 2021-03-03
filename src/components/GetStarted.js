@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import  {useState} from 'react';
 import logo from "./funnel3/logo.PNG";
@@ -31,9 +30,15 @@ import crossbite from "./funnel3/funnel3/crossbite.png";
         <div className="grid-item"> <img src={bite_issue} className="teeth"/><p>bite_issue</p></div>
         <div className="grid-item"><p className="note">I have another issue</p></div>
         </div>
+      
         <div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
           <div className="title-question"><p className="element2">Choose the image that best describes your spaced teeth:</p></div>
+        </div>
+        <div className="grid-session2">
+        <div className="grid-item"></div>
+        <div className="grid-item"></div>
+        <div className="grid-item"></div>
         </div>
 
 
