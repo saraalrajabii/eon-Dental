@@ -1,6 +1,7 @@
 body {
     max-width: 1400px;
     margin: 0 auto;
+    /* direction:rtl; */
   }
 
 .container{
@@ -149,5 +150,42 @@ body {
   }
 
   textarea{
-    max-width:95%;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #eeefef;
+    padding: 12px;
   }
+  .pesonal-information{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr; 
+
+  }
+
+
+  @media screen and (max-width: 1600px) {
+    .pesonal-information{
+     display: grid;
+     grid-template-columns: 2fr 2fr ;
+    }
+  }
+  @media screen and (max-width: 839px) {
+    .pesonal-information{
+     display: grid;
+     grid-template-columns: 2fr  ;
+    }
+  }
+  .input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+
+

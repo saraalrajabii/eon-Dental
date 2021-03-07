@@ -1,0 +1,48 @@
+{
+    "Title": {
+        "1": "Let's see if you qualify for clear aligners!"
+    },
+    "Question": {
+        "1": "What’s your biggest concern with your smile?"
+    },
+    "Question21": {
+        "1": "Choose the image that best describes your crowded teeth:"
+    },
+    "Question22": {
+        "1": "Choose the image that best describes your spacing teeth:"
+    },
+    "Question23": {
+        "1": "Choose the image that best describes your crossbite teeth:"
+    },
+    "Question24": {
+        "1": "Choose the image that best describes your bite_issue teeth:"
+    },
+
+"case1": {
+    "1": "crowded"
+},
+
+"case2": {
+    "1": "spacing"
+},
+"case3": {
+    "1": "crossbite"
+},
+"case4": {
+    "1": "bite_issue"
+},
+"case5": {
+    "1": "I have another issue"
+},
+"case11": {
+    "1": "Mild"
+},
+
+"case22": {
+    "1": "Moderate"
+},
+"case33": {
+    "1": "Severe"
+}
+
+ }
