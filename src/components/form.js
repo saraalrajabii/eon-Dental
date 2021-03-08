@@ -11,7 +11,21 @@ const styles ={
     borderRadius: ".5em!important",
     border: "none!important",
     padding:"7px"
+  },
+  button:{
+    justifySelf: "start",
+    backgroundColor: "#3dcdba",
+    textAlign: "center",
+    border: "none",
+    borderRadius: ".5em",
+    color: "#fff",
+    fontSize:" 1em",
+    padding: ".5em",
+    width: "318px!important",
+    margin: "25px 0!important",
+    cursor: "pointer",
   }
+
 }
 
 const useStyles  = makeStyles(styles);
@@ -39,7 +53,7 @@ return(
      <Grid item lg={6} xs={12} ><Field className ={classes.root}  name="email" placeholder="Email"/>
      </Grid>
      <Grid item lg={6} xs={12} >
-       <Button  disabled={isSubmitting}type="submit"
+       <Button  className ={classes.button} disabled={isSubmitting}type="submit"
        variant="contained"
        color="#3dcdba">submit</Button> 
        </Grid>
@@ -48,7 +62,7 @@ return(
 
 </Grid>
 <pre>{JSON.stringify(values, null, 2)}</pre>
-We only treat patients age 16 and up.
+<p>We only treat patients age 16 and up.</p>
 </Form>
 
   )}
@@ -72,31 +86,3 @@ export default Basic ;
 
 
 
-{/* <div>
-<Formik  initialValues={{
-          firstName: ""}}
-        onSubmit={(data) => { console.log("submit: ", data) }}>
-    
-    {({values, handleChange, handleBlur,handleSubmit})=>(
-    <Grid container spacing={2} onSubmit={handleSubmit}>
-     
-     <Grid item lg={6} xs={12} ><TextField name="firstName" value ={values.firstName}  onChange={handleChange} onBlur={handleBlur} /></Grid>
- 
-     <Grid  item lg={6} xs={12}  ><p style={{background:"blue"}}>2</p></Grid>
-     <Grid  item lg={6} xs={12} ><p style={{background:"blue"}}>2</p></Grid>
-     <Grid item lg={6} xs={12} ><p style={{background:"blue"}}>2</p></Grid>
-     <Grid  item lg={6} xs={12} ><p style={{background:"blue"}}>2</p></Grid>
-     <Grid item lg={6} xs={12} ><p style={{background:"blue"}}>2</p></Grid>
-     <div>  <Button  type="submit">submit</Button> </div>
-   
-             
-     <pre>{JSON.stringify(values, null, 2)}</pre>
- </Grid>
-
-
-)}</Formik>
-  </div>
-);
-export default Basic ;
-
- */}
