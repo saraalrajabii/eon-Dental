@@ -1,8 +1,8 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import { Grid,Card ,Button, CardContent, makeStyles} from "@material-ui/core";
-import { sizing } from '@material-ui/system';
-
+import Select from 'react-select';
+import { array, boolean, number, object, string, ValidationError } from 'yup';
 const styles ={
   root:{
     background: "rgba(92,98,102,.09)!important",
@@ -37,6 +37,16 @@ return(
   <CardContent>
 <Formik initialValues={{firstName:"",lastName :"",country:"",
  city_of_residence:"",email:""}}
+ 
+ validationSchema={object({
+  firstName:string().required().max(10),
+  lastName :string().required().max(10),
+  country:string().required(),
+  city_of_residence:"",
+  email:string().required().max(10),
+
+ })}
+
   onSubmit={async(values)=>{
     console.log("my values",values ); 
     return new Promise(res => setTimeout(res, 2500));
@@ -62,6 +72,7 @@ return(
 
 </Grid>
 <pre>{JSON.stringify(values, null, 2)}</pre>
+<pre>{JSON.stringify(errors, null, 2)}</pre>
 <p>We only treat patients age 16 and up.</p>
 </Form>
 
