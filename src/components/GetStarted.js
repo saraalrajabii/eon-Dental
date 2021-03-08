@@ -26,6 +26,7 @@ import MODERATE from "./funnel3/funnel3/spacing/moderate.jpg";
 import SEVERE from "./funnel3/funnel3/spacing/severe.jpg";
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import Basic from './form';
 
 // for styling this connect with index.css
   function GetStarted () {
@@ -95,7 +96,9 @@ import i18next from 'i18next';
         :null)}
           {(state.malocclusionType === "bite_issue" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
-          <div className="title-question"><p className="element2">Enter your contact details :</p></div>
+          <div className="title-question"><p className="element2">Enter your contact details :</p>
+          <Basic/></div>
+          
         </div>
         </div>
         :null)}

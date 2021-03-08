@@ -7,8 +7,8 @@ import Basic from './components/form';
 function App() {
   return (
     <Router className="containerRouter">
-    {/* <Route path="/" component={GetStarted} />  */}
-    <Route path="/" component={Basic} />
+    <Route path="/" component={GetStarted} /> 
+    {/* <Route path="/" component={Basic} /> */}
     </Router>
   );
 }

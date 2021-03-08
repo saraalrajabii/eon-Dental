@@ -38,14 +38,14 @@ return(
 <Formik initialValues={{firstName:"",lastName :"",country:"",
  city_of_residence:"",email:""}}
  
- validationSchema={object({
-  firstName:string().required().max(10),
-  lastName :string().required().max(10),
-  country:string().required(),
-  city_of_residence:"",
-  email:string().required().max(10),
+//  validationSchema={object({
+//   firstName:string().required().max(10),
+//   lastName :string().required().max(10),
+//   country:string().required(),
+//   city_of_residence:"",
+//   email:string().required().max(10),
 
- })}
+//  })}
 
   onSubmit={async(values)=>{
     console.log("my values",values ); 
@@ -65,7 +65,7 @@ return(
      <Grid item lg={6} xs={12} >
        <Button  className ={classes.button} disabled={isSubmitting}type="submit"
        variant="contained"
-       color="#3dcdba">submit</Button> 
+     >submit</Button> 
        </Grid>
        
 
