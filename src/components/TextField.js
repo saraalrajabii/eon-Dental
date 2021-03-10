@@ -20,7 +20,7 @@ export const TextField = ({ label, ...props }) => {
       <input
         className={`form-control ${meta.touched && meta.error && 'is-invalid'}`}
         {...field} {...props}
-        autoComplete="off"
+        autoComplete="off"  required
       />
       <ErrorMessage component="div" name={field.name}   className ={classes.root}  />
     </div>

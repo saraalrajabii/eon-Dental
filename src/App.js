@@ -7,10 +7,10 @@ import Email from './components/email';
 
 function App() {
   return (
-    <Router   history={History} className="containerRouter">
+    <Router className="containerRouter">
     <Switch>
           <Route  path="/" component={GetStarted} exact />
-          <Route path='/email' component={Email}/>
+          <Route path='/email/:id' component={Email}/>
         </Switch>
     </Router>
   );

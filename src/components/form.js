@@ -31,7 +31,8 @@ const styles ={
     cursor: "pointer",
   },
   form:{
-    border:"none" }
+    border:"none" 
+  }
 
 }
 const useStyles  = makeStyles(styles);
@@ -40,8 +41,6 @@ const useStyles  = makeStyles(styles);
 
 function Basic(){
   const classes = useStyles();
-
-
 
   const validate = Yup.object({
     firstName: Yup.string()
@@ -69,32 +68,37 @@ return(
  city_of_residence:"",email:"" ,countryCode :"",Phone:""  }}
 
  validationSchema={validate}
- onSubmit={values => {
-   console.log(values)
- }}
+
+ 
+
+  onSubmit={async(values)=>{
+    console.log("my values",values ); 
+    return new Promise(res => setTimeout(res, 2500));
+  }} 
    >
-{formik => (
-  
-      <Form  className ={classes.form} >
-          {console.log("formik"+  formik.initialValues)}
+
+    {({ values, errors, isSubmitting, isValid }) => (
+    
+      <Form  className ={classes.form}  >
+        
        
       <Grid container spacing={2} >
           <Grid  item lg={6} xs={12}  ><TextField      className ={classes.root} 
          name="firstName" type="text "  placeholder="First Name" /></Grid>
-          <Grid  item lg={6} xs={12} ><TextField  className ={classes.root}
+          <Grid  item lg={6} xs={12} ><TextField   className ={classes.root}
           name="lastName" type="text" placeholder="Last Name"/></Grid>
-          <Grid item lg={6} xs={12} ><TextField  className ={classes.root} 
+          <Grid item lg={6} xs={12} ><TextField   className ={classes.root} 
           name="country"   type="text" placeholder="Country"/></Grid>
            <Grid item lg={6} xs={12} ><TextField  className ={classes.root} 
-          name="city_of_residence" placeholder="City Of Residence"   type="text" /></Grid>
-          <Grid item lg={6} xs={12} ><TextField className ={classes.root} 
+          name="city_of_residence"  placeholder="City Of Residence"   type="text" /></Grid>
+          <Grid item lg={6} xs={12} ><TextField required className ={classes.root} 
            name="email" type="email"  placeholder="Email"    
             /></Grid>
         
        <Grid item lg={2} xs={5} ><TextField className ={classes.root}  name="countryCode"   placeholder="+1"/></Grid>
-       <Grid item lg={4} xs={7} ><TextField className ={classes.root}  name="Phone" type="number" placeholder="111 111"/></Grid>
- 
-      <Grid item lg={6} xs={12} > <Link to='/email?q=' className ={classes.button}  type="submit">
+       <Grid item lg={4} xs={7} ><TextField className ={classes.root}   name="Phone" type="number" placeholder="111 111"/></Grid>
+     {  console.log("my values",values ) }
+      <Grid item lg={6} xs={12} > <Link to={'/email/'+values.email}  className ={classes.button} disabled={isSubmitting}  type="submit">
       Get result
           </Link>
       
@@ -102,6 +106,8 @@ return(
        </Grid>
 
 <p> We only treat patients age 16 and up.</p>
+<pre>{JSON.stringify(values, null, 2)}</pre>
+ <pre>{JSON.stringify(errors, null, 2)}</pre>
 </Form>
       )}
 
