@@ -1,13 +1,4 @@
-
-
-
-
-
-
-
-
-
-
+import { Link } from 'react-router-dom';
 import React, { Component } from "react";
 import  {useState} from 'react';
 import logo from "./funnel3/logo.PNG";
@@ -33,6 +24,7 @@ import Basic from './form';
     const { t } = useTranslation();
     const [state, setState] = useState({caseType:'' , malocclusionType:'',
   caseSeverity:''}); 
+  
     function handleClick1(lang ) {
       i18next.changeLanguage(lang);
       document.body.style.direction="ltr";
@@ -97,7 +89,8 @@ import Basic from './form';
           {(state.malocclusionType === "bite_issue" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
           <div className="title-question"><p className="element2">Enter your contact details :</p>
-          <Basic/></div>
+          <Basic/>
+          </div>
           
         </div>
         </div>
@@ -106,16 +99,21 @@ import Basic from './form';
           <div className="circle"><p className="circle-element">2</p></div>
           <div className="feedBack"><textarea placeholder="In a few words, tell us about the issue"></textarea></div>
         </div>
+        <div className="question2-container">
+          <div className="circle"><p className="circle-element">3</p></div>
+          <div className="title-question"><p className="element2">Enter your contact details :</p>
+          <Basic/>
+          </div>
+          </div>
         </div>
         :null)}
       </div>
       <nav >
-          <button  className="english"  onClick={()=>handleClick1('en')}      >
-            English
-          </button>
-          <button className="arabic"   onClick={()=>handleClick2('ar')}    >
-          Arabic
-          </button></nav>
+        <Link  to="/Funnul1/en"   className="english"  onClick={()=>handleClick1('en')}>English</Link>
+        
+          <Link  to="/Funnul1/ar"   className="arabic"   onClick={()=>handleClick2('ar')}  > Arabic</Link>
+      
+          </nav>
        <div></div>
        </div>
     );

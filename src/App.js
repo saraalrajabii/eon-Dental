@@ -1,14 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import GetStarted from './components/GetStarted';
-import Basic from './components/form';
+
 
 
 function App() {
   return (
     <Router className="containerRouter">
-    <Route path="/" component={GetStarted} /> 
-    {/* <Route path="/" component={Basic} /> */}
+    <Route path="/" component={GetStarted}   /> 
     </Router>
   );
 }
