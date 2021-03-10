@@ -1,8 +1,11 @@
 import React from 'react';
+import  { useState, useEffect } from 'react';
 import { Formik, Field,ErrorMessage, Form } from 'formik';
 import { Grid,Card ,Button, CardContent, makeStyles} from "@material-ui/core";
 import Select from 'react-select';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
+import History from './History';
 import { TextField } from './TextField';
 
 const styles ={
@@ -64,14 +67,17 @@ return(
   <CardContent>
 <Formik initialValues={{firstName:"",lastName :"",country:"",
  city_of_residence:"",email:"" ,countryCode :"",Phone:""  }}
- 
+
  validationSchema={validate}
  onSubmit={values => {
    console.log(values)
  }}
    >
 {formik => (
-      <Form  className ={classes.form}    >
+  
+      <Form  className ={classes.form} >
+          {console.log("formik"+  formik.initialValues)}
+       
       <Grid container spacing={2} >
           <Grid  item lg={6} xs={12}  ><TextField      className ={classes.root} 
          name="firstName" type="text "  placeholder="First Name" /></Grid>
@@ -82,12 +88,16 @@ return(
            <Grid item lg={6} xs={12} ><TextField  className ={classes.root} 
           name="city_of_residence" placeholder="City Of Residence"   type="text" /></Grid>
           <Grid item lg={6} xs={12} ><TextField className ={classes.root} 
-           name="email" type="email"  placeholder="Email"/></Grid>
+           name="email" type="email"  placeholder="Email"    
+            /></Grid>
         
        <Grid item lg={2} xs={5} ><TextField className ={classes.root}  name="countryCode"   placeholder="+1"/></Grid>
        <Grid item lg={4} xs={7} ><TextField className ={classes.root}  name="Phone" type="number" placeholder="111 111"/></Grid>
  
-      <Grid item lg={6} xs={12} ><button  className ={classes.button} type="submit">Get result</button> 
+      <Grid item lg={6} xs={12} > <Link to='/email?q=' className ={classes.button}  type="submit">
+      Get result
+          </Link>
+      
        </Grid>
        </Grid>
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from "react";
-import  {useState} from 'react';
+import  { useState, useEffect } from 'react';
 import logo from "./funnel3/logo.PNG";
 import spacing from "./funnel3/funnel3/spacing.png";
 import crowded from "./funnel3/funnel3/crowded.png";
@@ -24,18 +24,24 @@ import Basic from './form';
     const { t } = useTranslation();
     const [state, setState] = useState({caseType:'' , malocclusionType:'',
   caseSeverity:''}); 
+ 
+
+
   
     function handleClick1(lang ) {
       i18next.changeLanguage(lang);
       document.body.style.direction="ltr";
+      window.location="/"
     }
     function handleClick2(lang ) {
       i18next.changeLanguage(lang);
       document.body.style.direction="rtl";
+
     }
    // state changed so it will print the new value 
     console.log(state);
     return (
+     
       <div  className="container">
       <div> </div>
       <div  className="header-container">
@@ -109,9 +115,10 @@ import Basic from './form';
         :null)}
       </div>
       <nav >
-        <Link  to="/Funnul1/en"   className="english"  onClick={()=>handleClick1('en')}>English</Link>
+        <Link    to="/en"  className="english"  onClick={()=>handleClick1('en')}>English</Link>
         
-          <Link  to="/Funnul1/ar"   className="arabic"   onClick={()=>handleClick2('ar')}  > Arabic</Link>
+        
+          <Link  to="/ar"    className="arabic"   onClick={()=>handleClick2('ar')}  > Arabic</Link>
       
           </nav>
        <div></div>
