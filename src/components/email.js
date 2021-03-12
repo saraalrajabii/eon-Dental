@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import queryString from "query-string";
 
-import { Link } from 'react-router-dom';
-
-const Email = (props )=> {
+function Email ({match, location }) {
  
-console.log(props.match.params.id)
+ console.log( match)
+ const lang = match.params.lang 
+
+ let queryParams = queryString.parse(location.search);
+ console.log( queryParams )
+
+
+
   return (
 <div>
-    Hello {props.match.params.id}
+   {lang ===  "ar" ? "مرحبا ":"Hello" } 
 </div>
   )};
 

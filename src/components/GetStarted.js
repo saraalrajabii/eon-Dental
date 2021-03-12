@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import React, { Component } from "react";
 import  { useState, useEffect } from 'react';
 import logo from "./funnel3/logo.PNG";
@@ -17,31 +17,46 @@ import MODERATE from "./funnel3/funnel3/spacing/moderate.jpg";
 import SEVERE from "./funnel3/funnel3/spacing/severe.jpg";
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import Basic from './form';
+import InnerForm from './form';
+import lifecycle from 'react-pure-lifecycle';
+import { useLocation }from "react-router-dom"
+
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 
 // for styling this connect with index.css
-  function GetStarted () {
+  function GetStarted ({ match }) {
+    let query = useQuery();
     const { t } = useTranslation();
     const [state, setState] = useState({caseType:'' , malocclusionType:'',
   caseSeverity:''}); 
- 
+//console.log(window )
+console.log(window.location)
+ console.log(match)
 
+ useEffect(() => {
 
-  
-    function handleClick1(lang ) {
-      i18next.changeLanguage(lang);
+if (match.params.lang==="en"){
+  console.log('render english !');
+  i18next.changeLanguage(match.params.lang);
       document.body.style.direction="ltr";
-      window.location="/"
-    }
-    function handleClick2(lang ) {
-      i18next.changeLanguage(lang);
-      document.body.style.direction="rtl";
+}
+if (match.params.lang==="ar"){
+  console.log('render  arabic!');
+  i18next.changeLanguage(match.params.lang);
+  document.body.style.direction="rtl";
+}
 
-    }
+}, [])
+
+
    // state changed so it will print the new value 
     console.log(state);
     return (
-     
+      // <Link to="/account?name=baz">Baz User</Link>
       <div  className="container">
       <div> </div>
       <div  className="header-container">
@@ -95,7 +110,7 @@ import Basic from './form';
           {(state.malocclusionType === "bite_issue" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
           <div className="title-question"><p className="element2">Enter your contact details :</p>
-          <Basic/>
+          <InnerForm  lang={match.params.lang}/>
           </div>
           
         </div>
@@ -108,19 +123,12 @@ import Basic from './form';
         <div className="question2-container">
           <div className="circle"><p className="circle-element">3</p></div>
           <div className="title-question"><p className="element2">Enter your contact details :</p>
-          <Basic/>
+          <InnerForm/>
           </div>
           </div>
         </div>
         :null)}
       </div>
-      <nav >
-        <Link    to="/en"  className="english"  onClick={()=>handleClick1('en')}>English</Link>
-        
-        
-          <Link  to="/ar"    className="arabic"   onClick={()=>handleClick2('ar')}  > Arabic</Link>
-      
-          </nav>
        <div></div>
        </div>
     );
