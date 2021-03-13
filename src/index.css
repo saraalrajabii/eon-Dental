@@ -6,7 +6,9 @@ body {
     margin: 0 auto;
     /* direction:rtl; */
   }
-
+#section2{
+  height: 400px;
+}
 .container{
     box-sizing: border-box;
    
@@ -158,7 +160,7 @@ body {
     font-size: 14px;
     font-weight: 700;
     line-height: 50px;
-    width: 80%;
+    width: 100%;
     border-radius: 8px;
     border: 1px solid #eeefef;
     padding: 12px;

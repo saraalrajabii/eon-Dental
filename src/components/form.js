@@ -1,5 +1,5 @@
 import React from 'react';
-import  { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import { Grid,Card, CardContent, makeStyles} from "@material-ui/core";
 import Select from 'react-select';
@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { TextField } from './TextField';
 import ReactFlagsSelect from 'react-flags-select';
-
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+import { useLocation }from "react-router-dom"
 
 
 
@@ -40,7 +42,14 @@ const styles ={
 }
 const useStyles  = makeStyles(styles);
 
-function InnerForm (props){
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+function InnerForm ( props){
+  let query = useQuery();
+  const { t } = useTranslation();
+console.log(props)  /// props = lang = en 
   const classes = useStyles();
   const [input, setInput] = useState('');
   const [selectedOption, setSelectedOption] = useState([]); 
@@ -56,6 +65,22 @@ function InnerForm (props){
     setSelectedOption3(selectedOption );
   };
 
+  useEffect(() => {
+  if (props.lang==="en"){
+    console.log('render english !');
+    i18next.changeLanguage(props.lang);
+        document.body.style.direction="ltr";
+  }
+  if (props.lang==="ar"){
+    console.log('render  arabic!');
+    i18next.changeLanguage(props.lang);
+    document.body.style.direction="rtl";
+  }
+  
+  }, [])
+
+
+  
 
   const queryString = require('query-string');
   let url = window.location.search
@@ -66,23 +91,23 @@ function InnerForm (props){
   const validate = Yup.object({
     firstName: Yup.string()
       .max(15, 'Must be 15 characters or less')
-      .required(' firstName required'),
+      .required( `${t('val_Firstname.1')}`),
       lastName: Yup.string()
       .max(20, 'Must be 20 characters or less')
-      .required(' lastName required'),
+      .required( `${t('val_lastname.1')}`),
       country: Yup.string()
-      .required('country is required'),
+      .required(`${t('val_Country.1')}`),
       city_of_residence: Yup.string()
-      .required(' city of residence is required'),
+      .required(`${t('val_City.1')}`),
       email: Yup.string()
       .email('Email is invalid')
-      .required('Email is required'),
+      .required(`${t('val_Email.1')}`),
       countryCode : Yup.string()
-      .required('country code is required'),
+      .required(`${t('val_code.1')}`),
       Phone: Yup.string()
       .max(10, 'Must be 10 characters')
       .min(10 ,'Must be 10 characters')
-      .required('Phone is required'),
+      .required(`${t('val_phone.1')}`),
     
   })
   const options1 = [
@@ -132,12 +157,12 @@ return(
       <Form  className ={classes.form}>
       <Grid container spacing={2} >
           <Grid  item lg={6} xs={12}  ><TextField     
-         name="firstName" type="text "  placeholder="First Name" /></Grid>
+         name="firstName" type="text "  placeholder={t('form_Firstname.1')} /></Grid>
           <Grid  item lg={6} xs={12} ><TextField  
-          name="lastName" type="text" placeholder="Last Name"/></Grid>
+          name="lastName" type="text" placeholder={t('form_lastname.1')}/></Grid>
           <Grid item lg={6} xs={12} >
         <Select className ={classes.root}
-            name="country" isSearchable  placeholder="Country"
+            name="country" isSearchable  placeholder={t('form_Country.1')}
           value={selectedOption}
           onChange={handleChange1}
           options={options1}
@@ -145,14 +170,14 @@ return(
           </Grid>
            <Grid item lg={6} xs={12} >
           <Select   className ={classes.root} 
-             name="city_of_residence" isSearchable  placeholder="City Of Residence"
+             name="city_of_residence" isSearchable  placeholder={t('form_City.1')}
           value={selectedOption2.value}
           onChange={handleChange2}
           options={filteredOptions}
             />
             </Grid>
           <Grid item lg={6} xs={12} ><TextField required
-           name="email" type="email"  placeholder="Email"   value={input}
+           name="email" type="email"  placeholder={t('form_Email.1')}  value={input}
            onChange={(e) => setInput(e.target.value)}  
             /></Grid>
              {console.log(input)}
@@ -171,13 +196,14 @@ return(
       <Grid item lg={6} xs={12} >
          <Link to={`/${props.lang}/email${url}`} className ={classes.button}
       type="submit">
-      Get result
+     {t('form_button.1')} 
       </Link>
+      <p>   {t('form_note.1')} </p>
        </Grid>
        </Grid>
-<p> We only treat patients age 16 and up.</p>
-<pre>{JSON.stringify(values, null, 2)}</pre>
- <pre>{JSON.stringify(errors, null, 2)}</pre>
+
+{/* <pre>{JSON.stringify(values, null, 2)}</pre>
+ <pre>{JSON.stringify(errors, null, 2)}</pre> */}
 </Form>
       )}
 

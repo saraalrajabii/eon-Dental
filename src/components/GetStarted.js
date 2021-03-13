@@ -78,7 +78,7 @@ if (match.params.lang==="ar"){
         </div>
      
       {/* // here will appere when i click on some things /// when i want to put a condition i will put it in object */}
- <div  id="section2"  >  
+ <div  id="section2"     >  
       {(state.malocclusionType === "crowding" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
           <div className="title-question"><p className="element2">{t('Question21.1')}</p></div>
@@ -111,7 +111,7 @@ if (match.params.lang==="ar"){
         :null)}
           {(state.malocclusionType === "bite_issue" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
-          <div className="title-question"><p className="element2">Enter your contact details :</p>
+          <div className="title-question"><p className="element2">{t('Question2.1')} </p>
           <InnerForm  lang={match.params.lang}/>
           </div>
           
@@ -120,11 +120,11 @@ if (match.params.lang==="ar"){
         :null)}
            {(state.malocclusionType === "another_Issue" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
-          <div className="feedBack"><textarea placeholder="In a few words, tell us about the issue"></textarea></div>
-        </div>
+          <div className="feedBack"><textarea placeholder={t('textarea.1')}></textarea></div>
+        </div>                      
         <div className="question2-container">
           <div className="circle"><p className="circle-element">3</p></div>
-          <div className="title-question"><p className="element2">Enter your contact details :</p>
+          <div className="title-question"><p className="element2">{t('Question2.1')}</p>
           <InnerForm/>
           </div>
           </div>

@@ -43,6 +43,54 @@
 },
 "case33": {
     "1": "Severe"
-}
+},
 
+"form_Firstname":{
+    "1": "First Name"
+},
+"form_lastname":{
+    "1": "last Name"
+},
+"form_Country":{
+    "1": "Country"
+},
+"form_City":{
+    "1": "City Of Residence"
+},
+"form_Email":{
+    "1": "Email"
+},
+"form_button":{
+    "1":" Get Result "
+},"form_note":{
+    "1":" We only treat patients age 16 and up. "
+},
+
+"val_Firstname":{
+    "1": "firstName required "
+},
+"val_lastname":{
+    "1": "lastName required "
+},
+"val_Country":{
+    "1": "country is required "
+},
+"val_City":{
+    "1": "city of residence is required "
+},
+"val_Email":{
+    "1": "Email is required"
+},
+"val_code":{
+    "1": "country code is required "
+},
+"val_phone":{
+    "1": "Phone is required"
+},
+"Question2": {
+    "1": "Enter your contact details :"
+},
+"textarea":{
+    "1" :"In a few words, tell us about the issue"
+}
  }
