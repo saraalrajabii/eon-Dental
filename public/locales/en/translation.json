@@ -92,5 +92,36 @@
 },
 "textarea":{
     "1" :"In a few words, tell us about the issue"
-}
+    },
+      "jordan":{
+        "1" :"jordan"
+    }, "Saudi Arabia":{
+        "1" :"Saudi Arabia"
+    },
+    "Kuwait":{
+        "1" :"Kuwait"
+    },
+    "Qatar":{
+        "1" :"Qatar"
+    },"Amman":{
+        "1" :"Amman"
+    },"Doha":{
+        "1" :"Doha"
+    },"Riyadh":{
+        "1" :"Riyadh"
+    },
+    "Jeddah":{
+        "1":"Jeddah"
+    },  "Khobar":{
+        "1":"Khobar"
+    },  "Dhahran":{
+        "1":"Dhahran"
+    },  "Dammam":{
+        "1":"Dammam"
+    },"other":{
+        "1":"Other Country"
+    }
+    
+    
+    
  }

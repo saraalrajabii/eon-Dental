@@ -6,12 +6,15 @@ import Select from 'react-select';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { TextField } from './TextField';
-import ReactFlagsSelect from 'react-flags-select';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { useLocation }from "react-router-dom"
 
-
+import sa  from './countryImages/sa.png'
+import jo  from './countryImages/jo.png'
+import kw  from './countryImages/kw.png'
+import qa  from './countryImages/qa.png'
+import ae  from './countryImages/uae.png'
 
 const styles ={
   root:{
@@ -111,29 +114,29 @@ console.log(props)  /// props = lang = en
     
   })
   const options1 = [
-    { value: "jo", label: "Jordan" },
-    { value: "sa", label: "Saudi Arabia" },
-    { value: "kw", label: "Kuwait" },
-    { value: "qa", label: "Qatar" },
-    { value: "ae", label: "Dubai" },
+    { value: "jo", label: `${t('jordan.1')}` },
+    { value: "sa", label:  `${t('Saudi Arabia.1')}`},
+    { value: "kw", label: `${t('Kuwait.1')}` },
+    { value: "qa", label:   `${t('Qatar.1')}`},
+    { value: "other", label:   `${t('other.1')}`},
 ];
 const options2 = [
-    {value: 'dubai', label: 'Dubai', link: 'ae'},
-    {value: 'abudhabi', label: 'Abu Dhabi', link: 'ae'},
-    {value: 'amman', label: 'Amman', link: 'jo'},
-    {value: 'doha', label: 'Doha', link: 'qa'},
-    {value: 'kuwait', label: 'Kuwait', link: 'kw'},
-    {value: 'riyadh', label: 'Riyadh', link: 'sa'},
-    {value: 'jeddah', label: 'Jeddah', link: 'sa'},
-    {value: 'khobar', label: 'Khobar', link: 'sa'},
-    {value: 'dhahran', label: 'Dhahran', link: 'sa'},
-    {value: 'dammam', label: 'Dammam', link: 'sa'}
+  
+    {value: 'amman', label: `${t('Amman.1')}`, link: 'jo'},
+    {value: 'doha', label:   `${t('Doha.1')}`, link: 'qa'},
+    {value: 'kuwait', label: `${t('Kuwait.1')}`, link: 'kw'},
+    {value: 'riyadh', label:  `${t('Riyadh.1')}`, link: 'sa'},
+    {value: 'jeddah', label: `${t('Jeddah.1')}`, link: 'sa'},
+    {value: 'khobar', label: `${t('Khobar.1')}`, link: 'sa'},
+    {value: 'dhahran', label:  `${t('Dhahran.1')}`, link: 'sa'},
+    {value: 'dammam', label: `${t('Dammam.1')}`, link: 'sa'}
 ];
 const options3 = [
-  {  value: "+962", label: "+962", code: "jo" },
-  { value: "+966", label: "+966", code: "sa" },
-  { value: "+965", label: "+965", code: "kw" },
-  { value: "+974", label: "+974", code: "qa" },
+  { value: "+962", label:<div><img src={jo} height="20px" width="30px"/> +962 </div>, code: "jo" },
+  { value: "+966", label: <div><img src={sa} height="20px" width="30px"/> +966 </div>, code: "sa" },
+  { value: "+965", label:<div><img src={kw} height="20px" width="30px"/> +965 </div>, code: "kw" },
+  { value: "+974", label:<div><img src={qa} height="20px" width="30px"/> +974</div>, code: "qa" },
+  { value: "+971", label:<div><img src={ae} height="20px" width="30px"/> +971 </div>, code: "ae" },
 ];
 const filteredOptions = options2.filter (o => o.link.includes(selectedOption.value) )
 console.log(selectedOption )
