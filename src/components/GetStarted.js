@@ -67,10 +67,11 @@ if (match.params.lang==="ar"){
         <h2 className="title-header">{t('Title.1')}</h2>
         <div className="question1-container">
           <div className="circle"><p className="circle-element">1</p></div>
-          <div className="title-question"><p className="element2">{t('Question.1')}</p></div>
+          <div className="title-question" ><p  className="element2">{t('Question.1')}</p></div>
         </div>
         <div className="grid-session"     >
-        <a href="#section2" > <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"crowding" })}>  <img src={crowded} className="teeth"/> <p>{t('case1.1')}</p></div> </a>
+        <a href="#section2"  > <div  className="grid-item" onClick={() =>{   setState({ ...state , malocclusionType:"crowding" })
+      }}>  <img src={crowded} className="teeth"/> <p>{t('case1.1')}</p></div> </a>
         <a href="#section2" >  <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"spacing"})}> <img src={spacing} className="teeth"/><p>{t('case2.1')}</p></div> </a>
         <a href="#section2" > <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"crossbite"})}> <img src={crossbite} className="teeth"/><p>{t('case3.1')}</p></div> </a>
         <a href="#section2" ><div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"bite_issue",caseType :"plus",caseSeverity:"severe"})}> <img src={bite_issue} className="teeth"/><p>{t('case4.1')}</p></div> </a>
@@ -87,7 +88,13 @@ if (match.params.lang==="ar"){
          <div className="grid-item" onClick={() => setState({ ...state ,caseType :"standard",caseSeverity:"mild" })}><img src={mild} className="teeth2"/><p>{t('case11.1')}</p></div>
          <div className="grid-item" onClick={() => setState({ ...state ,caseType :"standard",caseSeverity:"medium" })}><img src={moderate} className="teeth2"/><p>{t('case22.1')}</p></div>
          <div className="grid-item" onClick={() => setState({ ...state ,caseType :"plus",caseSeverity:"severe" })}><img src={severe} className="teeth2"/><p>{t('case33.1')}</p></div>
-         </div></div>
+         </div>
+         <div className="question2-container">
+          <div className="circle"><p className="circle-element">3</p></div>
+          <div className="title-question"><p className="element2">{t('Question2.1')}</p>
+          <InnerForm lang={match.params.lang}/>
+          </div>
+          </div></div>
         :null)}
          {(state.malocclusionType === "spacing" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
@@ -97,7 +104,13 @@ if (match.params.lang==="ar"){
          <div className="grid-item" onClick={() => setState({ ...state ,caseType :"standard",caseSeverity:"mild" })}><img src={MILD} className="teeth2"/><p>{t('case11.1')}</p></div>
          <div className="grid-item" onClick={() => setState({ ...state ,caseType :"standard",caseSeverity:"medium" })}><img src={MODERATE} className="teeth2"/><p>{t('case22.1')}</p></div>
          <div className="grid-item" onClick={() => setState({ ...state ,caseType :"plus",caseSeverity:"severe" })}><img src={SEVERE} className="teeth2"/><p>{t('case33.1')}</p></div>
-         </div></div>
+         </div>
+         <div className="question2-container">
+          <div className="circle"><p className="circle-element">3</p></div>
+          <div className="title-question"><p className="element2">{t('Question2.1')}</p>
+          <InnerForm lang={match.params.lang}/>
+          </div>
+          </div></div>
         :null)}
          {(state.malocclusionType === "crossbite" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
@@ -107,6 +120,12 @@ if (match.params.lang==="ar"){
          <div className="grid-item" onClick={() => setState({ ...state ,caseType :"standard",caseSeverity:"medium" })}><img src={Moderate} className="teeth2"/><p>{t('case22.1')}</p></div>
          <div className="grid-item" onClick={() => setState({ ...state ,caseType :"plus",caseSeverity:"severe" })}><img src={Severe} className="teeth2"/><p>{t('case33.1')}</p></div>
          </div>
+         <div className="question2-container">
+          <div className="circle"><p className="circle-element">3</p></div>
+          <div className="title-question"><p className="element2">{t('Question2.1')}</p>
+          <InnerForm lang={match.params.lang}/>
+          </div>
+          </div>
          </div>
         :null)}
           {(state.malocclusionType === "bite_issue" ?<div><div className="question2-container">
@@ -125,11 +144,12 @@ if (match.params.lang==="ar"){
         <div className="question2-container">
           <div className="circle"><p className="circle-element">3</p></div>
           <div className="title-question"><p className="element2">{t('Question2.1')}</p>
-          <InnerForm/>
+          <InnerForm lang={match.params.lang}/>
           </div>
           </div>
         </div>
         :null)}
+     
         </div>   
       </div>
        <div></div>
