@@ -6,6 +6,8 @@ import Select from 'react-select';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { TextField } from './TextField';
+import ReactFlagsSelect from 'react-flags-select';
+
 
 
 
@@ -33,8 +35,8 @@ const styles ={
   },
   select:{
     marginTop:"23px",
-  }
-
+  },
+ 
 }
 const useStyles  = makeStyles(styles);
 
@@ -103,7 +105,7 @@ const options2 = [
     {value: 'dammam', label: 'Dammam', link: 'sa'}
 ];
 const options3 = [
-  { value: "+962", label: "+962", code: "jo" },
+  {  value: "+962", label: "+962", code: "jo" },
   { value: "+966", label: "+966", code: "sa" },
   { value: "+965", label: "+965", code: "kw" },
   { value: "+974", label: "+974", code: "qa" },
@@ -126,7 +128,7 @@ return(
    >
 
     {({ values, errors, handleSubmit, isValid }) => (
-    
+  
       <Form  className ={classes.form}>
       <Grid container spacing={2} >
           <Grid  item lg={6} xs={12}  ><TextField     
@@ -171,7 +173,6 @@ return(
       type="submit">
       Get result
       </Link>
-
        </Grid>
        </Grid>
 <p> We only treat patients age 16 and up.</p>

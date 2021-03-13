@@ -18,7 +18,7 @@ import SEVERE from "./funnel3/funnel3/spacing/severe.jpg";
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import InnerForm from './form';
-import lifecycle from 'react-pure-lifecycle';
+
 import { useLocation }from "react-router-dom"
 
 
@@ -69,14 +69,16 @@ if (match.params.lang==="ar"){
           <div className="circle"><p className="circle-element">1</p></div>
           <div className="title-question"><p className="element2">{t('Question.1')}</p></div>
         </div>
-        <div className="grid-session">
-        <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"crowding" })}> <img src={crowded} className="teeth"/><p>{t('case1.1')}</p></div>
-        <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"spacing"})}> <img src={spacing} className="teeth"/><p>{t('case2.1')}</p></div>
-        <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"crossbite"})}> <img src={crossbite} className="teeth"/><p>{t('case3.1')}</p></div>
-        <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"bite_issue",caseType :"plus",caseSeverity:"severe"})}> <img src={bite_issue} className="teeth"/><p>{t('case4.1')}</p></div>
-        <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"another_Issue",caseType :"plus",caseSeverity:"severe"})}><p className="note">{t('case5.1')}</p></div>
+        <div className="grid-session"     >
+        <a href="#section2" > <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"crowding" })}>  <img src={crowded} className="teeth"/> <p>{t('case1.1')}</p></div> </a>
+        <a href="#section2" >  <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"spacing"})}> <img src={spacing} className="teeth"/><p>{t('case2.1')}</p></div> </a>
+        <a href="#section2" > <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"crossbite"})}> <img src={crossbite} className="teeth"/><p>{t('case3.1')}</p></div> </a>
+        <a href="#section2" ><div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"bite_issue",caseType :"plus",caseSeverity:"severe"})}> <img src={bite_issue} className="teeth"/><p>{t('case4.1')}</p></div> </a>
+         <div className="grid-item" onClick={() => setState({ ...state , malocclusionType:"another_Issue",caseType :"plus",caseSeverity:"severe"})}>  <a href="#section2" ><p className="note">{t('case5.1')}</p></a></div>
         </div>
+     
       {/* // here will appere when i click on some things /// when i want to put a condition i will put it in object */}
+ <div  id="section2"  >  
       {(state.malocclusionType === "crowding" ?<div><div className="question2-container">
           <div className="circle"><p className="circle-element">2</p></div>
           <div className="title-question"><p className="element2">{t('Question21.1')}</p></div>
@@ -128,6 +130,7 @@ if (match.params.lang==="ar"){
           </div>
         </div>
         :null)}
+        </div>   
       </div>
        <div></div>
        </div>
