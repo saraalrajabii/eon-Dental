@@ -1,0 +1,94 @@
+  body {
+      max-width: 1400px;
+      margin: 0 auto;
+      outline: none;
+    }
+   * {
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
+  .container-Email{
+      box-sizing: border-box;
+      /* display: grid;
+      grid-template-columns: 1fr 20fr 1fr;  */
+    
+  }
+  .navBar-header-container-Email{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 50px;
+      margin-top: 50px;
+  }
+
+  .navBar-header-container-element2-Email{
+      cursor: pointer;
+      font-size: 50px;
+      color: gray;
+      border-radius: 0%;
+      text-decoration: none;
+      display: flex;
+      justify-content: flex-end;
+     
+  }
+  .element1-logo-Email{
+      width: 6em;
+      cursor: pointer;
+  }
+ .email-data{
+    display: grid;
+    grid-template-columns: 1fr  1fr;
+
+}
+.email-image{
+   
+    width: 100%;
+    object-position: top;
+    opacity: .2;
+    object-fit: cover;
+    object-fit: contain;
+    height: 447px;
+ 
+ 
+}
+.email-data-element1{
+text-align: center;
+padding-top: 100px;
+}
+.input-email{
+    font-size: 1em;
+    width: 70%;
+    margin-top: 20px;
+    border-radius: .5em!important;
+    border: none!important;
+    background-color: rgba(92,98,102,.09)!important;
+    outline: none;
+    padding: 7px;
+}
+
+.Button-email{
+    background-color: #3dcdba;
+    border: none;
+    border-radius: .5em;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+    width: 70%;
+    margin: .5em 0;
+    cursor: pointer;
+    outline: none;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 839px) {
+    .email-data{
+     display: grid;
+     grid-template-columns:  1fr  ;
+    }
+    .Button-email{
+        width:90%; 
+    }
+    .input-email{
+        width:90%; 
+    }
+  }
