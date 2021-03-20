@@ -14,6 +14,7 @@ import kw from "./countryImages/kw.png";
 import qa from "./countryImages/qa.png";
 import ae from "./countryImages/uae.png";
 import axios from "axios";
+import Email from "./email"
 const styles = {
   root: {
     background: "rgba(92,98,102,.09)!important",
@@ -225,8 +226,9 @@ function InnerForm(props) {
   };
 
   return (
-    <Card>
-      <CardContent>
+    <div>
+       
+
         <Formik
           initialValues={{
             firstName: "",
@@ -256,8 +258,9 @@ function InnerForm(props) {
               caseSeverity: props.state.caseSeverity,
             };
 
-            console.log("info", info);
-         
+         console.log("info", info);
+         localStorage.setItem('Country',  `${values.country}`);
+         localStorage.setItem('City',  `${values.city_of_residence}`);
             axios
               .post(
                 "https://assessment.12staging.com/capture/funnel3/userinfo",
@@ -369,8 +372,9 @@ function InnerForm(props) {
             </Form>
           )}
         </Formik>
-      </CardContent>
-    </Card>
+   
+      {/* <Email  country={filteredOptions} city={filteredOptions3}     style={{  display: "none"}}/> */}
+    </div>
   );
 }
 export default InnerForm;

@@ -6,23 +6,71 @@ import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import React, { useEffect, useState } from "react";
 
+
 const valedationsSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
 });
 
-function WrongEmail({ match, location }) {
+const includes = require("lodash/includes");
+const standardizedCountryCode = (incoming) => {
+  if (
+    includes(
+      ["uae", "ae", "united arabic emirates", "arab emirtaes"],
+      incoming.toLowerCase()
+    )
+  ) {
+    return "ae";
+  }
+
+  if (includes(["sa", "saudi", "saudi arabia"], incoming.toLowerCase())) {
+    return "sa";
+  }
+
+  if (includes(["jo", "jordan"], incoming.toLowerCase())) {
+    return "jo";
+  }
+
+  if (includes(["lb", "lebanon"], incoming.toLowerCase())) {
+    return "lb";
+  }
+
+  if (includes(["iq", "iraq"], incoming.toLowerCase())) {
+    return "iq";
+  }
+
+  if (includes(["qa", "qatar"], incoming.toLowerCase())) {
+    return "qa";
+  }
+
+  if (includes(["kw", "kuwait"], incoming.toLowerCase())) {
+    return "kw";
+  }
+
+  return "n/a";
+};
+
+
+
+
+
+
+function Email  ({match , location}) {
   const lang = match.params.lang;
-  console.log(lang);
+  
   let queryParams = queryString.parse(location.search);
 
-  console.log(queryParams); // this is the email which is exist in url
+  // console.log(queryParams); // this is the email which is exist in url
 
   const [exists, setExists] = useState(false);
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
+  const [code, setCode] = useState("");
 
   useEffect(() => {
+    const Country = localStorage.getItem('Country');
+    const City = localStorage.getItem('City');
+    console.log(Country,City )
     axios
       .post(
         "https://assessment.12staging.com/capture/funnel3/validateEmail",
@@ -30,13 +78,22 @@ function WrongEmail({ match, location }) {
       )
       .then((response) => {
         setExists(true);
-        console.log(response.config.data, exists);
-        // setEmail(response.config.data.email)
+        setCountry(Country);
+        setCity(City);
+        setEmail(queryParams.email)
+        console.log(email,country ,  city);
       })
       .catch((error) => {
         console.log(error.response);
       });
   }, []);
+  
+  console.log(exists  ,email,country ,  city);
+
+   
+    console.log( standardizedCountryCode(country))   // he return jo  then i need to add it to params 
+    setCode( standardizedCountryCode(country));
+
 
   return (
     <div className="container-Email">
@@ -45,7 +102,7 @@ function WrongEmail({ match, location }) {
         validationSchema={valedationsSchema}
         onSubmit={(values) => {
           console.log(values);
-          console.log(exists);
+        
         }}
       >
         {({ values, handleSubmit, errors, touched }) => (
@@ -102,5 +159,5 @@ function WrongEmail({ match, location }) {
     </div>
   );
 }
-export default WrongEmail;
+export default Email;
 
